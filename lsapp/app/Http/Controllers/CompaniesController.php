@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 class CompaniesController extends Controller
 {
     //
-    protected $table = 'companies';
-    public $primaryKey = 'id';
+    public function index(){
 
-    public function employer(){
-        return $this->belongsTo('App\Employer');
+    }
+
+    public function show(){
+        
     }
 }

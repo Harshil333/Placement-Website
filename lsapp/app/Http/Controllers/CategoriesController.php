@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     //
-    protected $table = 'categories';
-    public $primaryKey = 'id';
+    public function index(){
+
+    }
+
+    public function new(){
+
+    }
+
+    public function create(Request $request){
+
+    }
+
+    public function show(){
+
+    }
 }

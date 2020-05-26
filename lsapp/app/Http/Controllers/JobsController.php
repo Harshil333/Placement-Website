@@ -7,14 +7,23 @@ use Illuminate\Http\Request;
 class JobsController extends Controller
 {
     //
-    protected $table = 'jobs';
-    public $primaryKey = 'id';
-
-    public function category(){
-        return $this->belongsTo('App\Category');
+    public function new(){
+        return view('');
     }
 
-    public function company(){
-        return $this->belongsTo('App\Company');
+    public function create(Request $request){
+
+    }
+
+    public function edit(){
+        return view('');
+    }
+
+    public function update(Request $request){
+        
+    }
+
+    public function destroy(Request $request){
+
     }
 }

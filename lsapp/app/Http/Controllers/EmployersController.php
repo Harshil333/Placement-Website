@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 class EmployersController extends Controller
 {
     //
-    protected $table = 'employers';
-    public $primaryKey = 'id';
+    public function new(){
+
+    }
+
+    public function create(Request $request){
+
+    }
+
+    public function edit(){
+
+    }
+    
+    public function update(Request $request){
+
+    }
 }

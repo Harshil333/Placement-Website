@@ -7,7 +7,23 @@ use Illuminate\Http\Request;
 class CandidatesController extends Controller
 {
     //
-    protected $table = 'candidates';
-    public $primaryKey = 'id';
+    public function index(){
+
+    }
+
+    public function new(){
+
+    }
+
+    public function create(Request $request){
+
+    }
+
+    public function edit(){
+
+    }
     
+    public function update(Request $request){
+
+    }
 }
