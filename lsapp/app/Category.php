@@ -9,6 +9,10 @@ class Category extends Model
     //
     protected $table = 'categories';
     public $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+    ];
     
     public function jobs(){
         return $this->hasMany('App\Job');

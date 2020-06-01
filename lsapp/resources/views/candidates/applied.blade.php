@@ -1,0 +1,1 @@
+@include('../applied_jobs.index')

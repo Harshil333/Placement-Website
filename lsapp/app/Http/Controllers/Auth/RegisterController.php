@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Employer;
+use App\Candidate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +33,9 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    protected function redirectTo(){
+        return '/';
+    }
     /**
      * Create a new controller instance.
      *
@@ -53,7 +58,10 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'type' => ['required'],
+            'type' => ['required', 'string'],
+            'city' => ['required', 'string'],
+            'state' => ['required', 'string'],
+            'country' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -66,11 +74,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if($data['type']=='Employer'){
+            Employer::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'country' => $data['country'],
+                'image' => 'noimage.jpg'
+            ]);
+        }   
+        else{
+            Candidate::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'country' => $data['country'],
+                'image' => 'noimage.jpg'
+            ]);
+        }
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'type' => $data['type'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'country' => $data['country'],
             'password' => Hash::make($data['password']),
         ]);
     }
